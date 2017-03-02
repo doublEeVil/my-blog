@@ -10,14 +10,14 @@
 	 <div class="container">
 		 <div class="contact-head">
 			 <h3>CONTACT</h3>
-			  <form>
+			  <form action="/contact.html" method="post">
 				  <div class="col-md-6 contact-left">
-						<input type="text" placeholder="Name" required/>
-						<input type="text" placeholder="E-mail" required/>
-						<input type="text" placeholder="Phone" required/>
+						<input type="text" placeholder="Name" name="name" required/>
+						<input type="text" placeholder="E-mail" name="email" required/>
+						<input type="text" placeholder="Phone"   name="tel"/>
 				 </div>
 				 <div class="col-md-6 contact-right">
-						 <textarea placeholder="Message"></textarea>
+						 <textarea placeholder="Message" name="msg"></textarea>
 						 <input type="submit" value="SEND"/>
 				 </div>
 				 <div class="clearfix"></div>

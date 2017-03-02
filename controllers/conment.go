@@ -13,13 +13,13 @@ type ConmentController struct {
 
 func (this *ConmentController) Post() {
 	blogid := this.GetString("id")
-	conmentid := utils.UUIDgen()
+	commentid := utils.UUIDgen()
 	author := this.GetString("author")
 	mail := this.GetString("mail")
 	tel := this.GetString("tel")
 	content := this.GetString("content")
 	postTime := time.Now()
-	conment := models.BlogComment{conmentid, author, mail, tel, content, postTime}
-	services.AddConment(blogid, conment)
+	conment := models.BlogComment{commentid, author, mail, tel, content, postTime}
+	services.AddComment(blogid, conment)
 	this.Redirect("/single.html?id=" + blogid, 302)
 }

@@ -3,6 +3,7 @@ package controllers
 import (
 	"github.com/astaxie/beego"
 	"my-blog/services"
+	"fmt"
 )
 
 type DetailController struct {
@@ -19,5 +20,6 @@ func (this *DetailController) Get() {
 	this.Data["PostTime"] = blog.PostTime
 	this.Data["Content"] = blog.Content
 	this.Data["Conment"] = blog.Comment
+	fmt.Println(len(blog.Comment))
 	this.TplName = "single.html"
 }

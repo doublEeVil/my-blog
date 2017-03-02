@@ -23,37 +23,49 @@
 						 <div class="content-form">
 							 <h3>留下评论</h3>
 							 <form action="conment?id={{ .UUID}}" method="post">
-							 <input type="text" placeholder="Name" required/>
-							 <input type="text" placeholder="E-mail" required/>
-							 <input type="text" placeholder="Phone" required/>
+							 <input type="text" placeholder="Name" name="author" required/>
+							 <input type="text" placeholder="E-mail" name="mail" required/>
+							 <input type="text" placeholder="Phone" name="tel" />
 
-							 <textarea placeholder="Message"></textarea>
+							 <textarea placeholder="Message" name="content"></textarea>
 							 <input type="submit" value="发送"/>
 							 </form>
 						 </div>
 						 <div class="comments">
 							 <h3>评论</h3>
-							 <div class="comment-grid">
-								 <img src="images/pic.png" alt=""/>
-								 <div class="comment-info">
-								 <h4>评论者1</h4>
-								 <p>评论内容1.</p>
-								 <h5>日期2017-02+14 13:12:12</h5>
-								 <a href="#">回复</a>
-								 </div>
-								 <div class="clearfix"></div>
-							 </div>
+							 {{range .Conment}}
+                                 <div class="comment-grid">
+                                     <img src="static/images/pic.png" alt=""/>
+                                     <div class="comment-info">
+                                         <h4> {{ .Author}}</h4>
+                                         <p>{{ .Content}}</p>
+                                         <h5>日期{{ .PostTime}}</h5>
+                                         <!--<a href="#">回复</a>-->
+                                     </div>
+                                     <div class="clearfix"></div>
+                                 </div>
+                             {{end}}
+							 <!--<div class="comment-grid">-->
+								 <!--<img src="static/images/pic.png" alt=""/>-->
+								 <!--<div class="comment-info">-->
+								 <!--<h4>评论者1</h4>-->
+								 <!--<p>评论内容1.</p>-->
+								 <!--<h5>日期2017-02+14 13:12:12</h5>-->
+								 <!--<a href="#">回复</a>-->
+								 <!--</div>-->
+								 <!--<div class="clearfix"></div>-->
+							 <!--</div>-->
 							 
-							 <div class="comment-grid">
-								 <img src="images/pic.png" alt=""/>
-								 <div class="comment-info">
-								 <h4>评论者2</h4>
-								 <p>具体内容</p>
-								 <h5>日期2017-02+14 13:12:12</h5>
-								 <a href="#">回复</a>
-								 </div>
-								 <div class="clearfix"></div>
-							 </div>	
+							 <!--<div class="comment-grid">-->
+								 <!--<img src="images/pic.png" alt=""/>-->
+								 <!--<div class="comment-info">-->
+								 <!--<h4>评论者2</h4>-->
+								 <!--<p>具体内容</p>-->
+								 <!--<h5>日期2017-02+14 13:12:12</h5>-->
+								 <!--<a href="#">回复</a>-->
+								 <!--</div>-->
+								 <!--<div class="clearfix"></div>-->
+							 <!--</div>	-->
 							 <div class="pages">
 									<ul>
 									 <li class="active"><a href="#">1</a></li>

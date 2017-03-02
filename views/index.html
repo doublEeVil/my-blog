@@ -9,17 +9,17 @@
 		 <div class="content-grids">
 			 <div class="col-md-8 content-main">
 				 <div class="content-grid">
-					 <div class="content-grid-head">
-						 <h3>发布日期</h3>
-						 <h4>时间2017-02-14,发布者: <a href="#">作者</a></h4>
-						 <div class="clearfix"></div>
-					 </div>
-					 <div class="content-grid-info">
-						 <h3><a href="single.html">标题1</a></h3>
-						 <p>具体内容</p>
-						 <img src="static/images/c1.jpg" alt=""/>
-						 <a class="bttn" href="single.html">更多</a>
-					</div>
+					 <!--<div class="content-grid-head">-->
+						 <!--<h3>发布日期</h3>-->
+						 <!--<h4>时间2017-02-14,发布者: <a href="#">作者</a></h4>-->
+						 <!--<div class="clearfix"></div>-->
+					 <!--</div>-->
+					 <!--<div class="content-grid-info">-->
+						 <!--<h3><a href="single.html">标题1</a></h3>-->
+						 <!--<p>具体内容</p>-->
+						 <!--<img src="static/images/c1.jpg" alt=""/>-->
+						 <!--<a class="bttn" href="single.html">更多</a>-->
+					<!--</div>-->
 				 </div>
 				 {{range .Blogs}}
 					 <div class="content-grid-sec">
@@ -27,7 +27,7 @@
 							 <h3><a href="single.html?id={{ .UUID}}">{{ .Title}}</a></h3>
 							 <h4>{{ .PostTime}},发布者: <a href="#">{{ .Author}}</a></h4>
 							 <p>{{ .Content}}</p>
-							 <img src="images/c2.jpg" alt=""/>
+							 <img src="static/images/c2.jpg" alt=""/>
 							 <a class="bttn" href="single.html?id={{ .UUID}}">更多</a>
 						 </div>
 					 </div>

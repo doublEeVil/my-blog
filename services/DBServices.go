@@ -81,7 +81,7 @@ func GetBlog(uuid string) models.Blog {
 	return blog
 }
 
-func AddConment(blogid string, conment models.BlogComment) {
+func AddComment(blogid string, conment models.BlogComment) {
 	session, err := mgo.Dial(DB_URL)
 	session.SetMode(mgo.Monotonic, true)
 	if err != nil {
@@ -92,11 +92,25 @@ func AddConment(blogid string, conment models.BlogComment) {
 	var blog models.Blog
 	c.Find(bson.M{"uuid": blogid}).One(&blog)
 	{
-		conments := blog.Comment
-		if conments == nil {
-			conments = make([]models.BlogComment, 1)
+		comments := blog.Comment
+		if comments == nil {
+			comments = make([]models.BlogComment, 1)
 		}
-		conments = append(conments, conment)
-		c.Update(bson.M{"uuid": blogid}, bson.M{"$set": bson.M{"conment": conments}})
+		comments = append(comments, conment)
+		c.Update(bson.M{"uuid": blogid}, bson.M{"$set": bson.M{"comment": comments}})
+	}
+}
+
+func AddContactMsg(contactMsg models.ContactMe)  {
+	session, err := mgo.Dial(DB_URL)
+	session.SetMode(mgo.Monotonic, true)
+	if err != nil {
+		beego.Info("db disconnect:", err)
+	}
+	defer session.Close()
+	c := session.DB(DB_NAME).C("contactmsg")
+	err = c.Insert(&contactMsg)
+	if err != nil {
+		beego.Info("insert fail:", err)
 	}
 }
